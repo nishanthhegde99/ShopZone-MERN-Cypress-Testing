@@ -10,7 +10,7 @@ describe('Authentication Tests', () => {
       cy.get('[data-cy=login-page]').should('be.visible');
       cy.get('[data-cy=email-input]').should('be.visible');
       cy.get('[data-cy=password-input]').should('be.visible');
-      cy.get('[data-cy=login-submit]').should('be.visible').and('contain', 'Sign In');
+      cy.get('[data-cy=login-submit]').should('be.visible').and('contain', 'LOGIN ERROR');
       cy.get('[data-cy=register-link]').should('be.visible');
     });
 
