@@ -1,0 +1,29 @@
+{
+  "validUser": {
+    "email": "user@shopzone.com",
+    "password": "User@123",
+    "name": "Test User"
+  },
+  "adminUser": {
+    "email": "admin@shopzone.com",
+    "password": "Admin@123",
+    "name": "Admin User"
+  },
+  "newUser": {
+    "name": "Cypress Tester",
+    "email": "cypress_test@shopzone.com",
+    "password": "Test@123"
+  },
+  "invalidUser": {
+    "email": "wrong@shopzone.com",
+    "password": "wrongpassword"
+  },
+  "shippingAddress": {
+    "fullName": "Cypress Test",
+    "phone": "9876543210",
+    "street": "123 Test Street",
+    "city": "Bangalore",
+    "state": "Karnataka",
+    "pincode": "560001"
+  }
+}

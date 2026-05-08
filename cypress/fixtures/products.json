@@ -1,0 +1,15 @@
+{
+  "sampleProduct": {
+    "name": "Test Product Cypress",
+    "description": "A test product created by Cypress automation",
+    "price": 999,
+    "originalPrice": 1499,
+    "category": "Electronics",
+    "brand": "TestBrand",
+    "stock": 50,
+    "images": ["https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500"],
+    "discount": 33
+  },
+  "searchKeyword": "iPhone",
+  "filterCategory": "Electronics"
+}
