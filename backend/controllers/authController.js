@@ -14,6 +14,30 @@ exports.register = async (req, res) => {
     if (exists) return res.status(400).json({ success: false, message: 'Email already registered' });
     const user = await User.create({ name, email, password });
     const token = generateToken(user._id);
+
+    try {
+      await sendEmail({
+        email: user.email,
+        subject: 'Welcome to ShopZone!',
+        message: `Welcome to ShopZone, ${user.name}! We're glad to have you here.`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+            <h2 style="color: #4a90e2; text-align: center;">Welcome to ShopZone!</h2>
+            <p>Hi ${user.name},</p>
+            <p>Thank you for joining ShopZone. We're excited to help you find the best products at the best prices.</p>
+            <div style="text-align: center; margin: 30px 0;">
+              <a href="${process.env.CLIENT_URL}" style="background-color: #4a90e2; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold;">Start Shopping</a>
+            </div>
+            <p>If you have any questions, feel free to reply to this email.</p>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            <p style="font-size: 0.8rem; color: #777; text-align: center;">&copy; 2024 ShopZone MCA Project. All rights reserved.</p>
+          </div>
+        `,
+      });
+    } catch (err) {
+      console.error('Welcome email failed:', err);
+    }
+
     res.status(201).json({
       success: true,
       token,
